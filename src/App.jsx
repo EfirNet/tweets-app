@@ -8,7 +8,7 @@ const TweetsPage = lazy(() => import('./pages/TweetsPage'));
 
 const UserRoutes = () => {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/tweets-app">
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
