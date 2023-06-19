@@ -20,7 +20,7 @@ const CardList = ({ filteredCards }) => {
           `${API_URL}?page=${currentPage}&limit=${cardsPerPage}`
         );
         const fetchedCards = await res.json();
-        setCards((prevCards) => [...prevCards, ...fetchedCards]);
+        setCards(prevCards => [...prevCards, ...fetchedCards]);
 
         if (fetchedCards.length < cardsPerPage) {
           setHasMore(false);
@@ -34,21 +34,21 @@ const CardList = ({ filteredCards }) => {
   }, [currentPage, cardsPerPage]);
 
   const handleLoadMore = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
+    setCurrentPage(prevPage => prevPage + 1);
     setCardsPerPage(6);
   };
 
   if (error) {
     return <p>Error: {error}</p>;
   }
-  console.log('filteredCards->', filteredCards);
+
   return (
     <main>
       <ul className={styles.cardList}>
         {isLoading ? (
           <Loader />
         ) : (
-          cards.map((card) => <Card key={card.id} {...card} />)
+          cards.map(card => <Card key={card.id} {...card} />)
         )}
       </ul>
       <div className={styles.container}>
